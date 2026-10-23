@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="f127538" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.10.0">
+  <bpmn:collaboration id="Collaboration_19fqfyk" name="Sprint 1 strategic model - Bristol Regional Food Network - Group 51.">
+    <bpmn:participant id="Participant_0djqv3n" name="Bristol Regional Food Network: Marketplace Platform" processRef="Process_0ccldlc">
+      <bpmn:documentation>Case study: "The marketplace platform must provide…". Lanes group the platform's organisational functions: Quality &amp; Traceability, Catalogue &amp; Listings, Order Management, Payments &amp; Settlement, Community &amp; Sustainability.</bpmn:documentation>
+    </bpmn:participant>
+    <bpmn:participant id="Participant_1kmdp14" name="Customers" processRef="Process_0r9cpgl">
+      <bpmn:documentation>Three segments with stated barriers: young professionals and families (restricted farm-shop opening hours); community groups (finding reliable local suppliers); independent restaurants and cafés (admin overhead of multiple suppliers).</bpmn:documentation>
+    </bpmn:participant>
+    <bpmn:participant id="Participant_1t9zsx8" name="Certification Service (external)" processRef="Process_1qw2d1s">
+      <bpmn:documentation>External. Organic certification status is a stated product attribute; Use Case 1 refers to an "external or simulated verification service".</bpmn:documentation>
+    </bpmn:participant>
+    <bpmn:participant id="Participant_0eqhu7r" name="Producers" processRef="Process_0lugs2t">
+      <bpmn:documentation>"forty small-to-medium enterprises"; "technical capabilities amongst producers vary considerably"; some spend "approximately fifteen hours per week" on customer communication.</bpmn:documentation>
+    </bpmn:participant>
+    <bpmn:participant id="Participant_1f68kc9" name="Payment Provider" processRef="Process_031e8p6">
+      <bpmn:documentation>External. The case study requires test environments only: "Under no circumstances should live payment systems or real financial data be used".</bpmn:documentation>
+    </bpmn:participant>
+    <bpmn:messageFlow id="Flow_04h6ojk" name="Search and browse request" sourceRef="Participant_1kmdp14" targetRef="Activity_0dn7y72" />
+    <bpmn:messageFlow id="Flow_0jynef7" name="Basket and checkout details" sourceRef="Participant_1kmdp14" targetRef="Activity_0vd57je" />
+    <bpmn:messageFlow id="Flow_1wal87s" name="Product information" sourceRef="Activity_0dn7y72" targetRef="Participant_1kmdp14" />
+    <bpmn:messageFlow id="Flow_01zhcpi" name="Order confirmation" sourceRef="Activity_0vd57je" targetRef="Participant_1kmdp14" />
+    <bpmn:messageFlow id="Flow_0fze0f9" name="Quality concern report" sourceRef="Participant_1kmdp14" targetRef="Activity_0dzplkk" />
+    <bpmn:messageFlow id="Flow_1hkd6m9" name="Safety notification" sourceRef="Activity_0dzplkk" targetRef="Participant_1kmdp14" />
+    <bpmn:messageFlow id="Flow_01430g1" name="Surplus offers and community content" sourceRef="Activity_1ypcctx" targetRef="Participant_1kmdp14" />
+    <bpmn:messageFlow id="Flow_0jwx2kt" name="Certification check request" sourceRef="Activity_1vj38q5" targetRef="Participant_1t9zsx8" />
+    <bpmn:messageFlow id="Flow_1ofzg8u" name="Certification result" sourceRef="Participant_1t9zsx8" targetRef="Activity_1vj38q5" />
+    <bpmn:messageFlow id="Flow_1ciu8gg" name="Listing and stock updates" sourceRef="Participant_0eqhu7r" targetRef="Activity_1vj38q5" />
+    <bpmn:messageFlow id="Flow_1vpre2o" name="Order notification (48-hour lead time)" sourceRef="Activity_1xqg59a" targetRef="Participant_0eqhu7r" />
+    <bpmn:messageFlow id="Flow_03jfxfc" name="Fulfilment confirmation" sourceRef="Participant_0eqhu7r" targetRef="Activity_1xqg59a" />
+    <bpmn:messageFlow id="Flow_1qu8hgm" name="Settlement statement" sourceRef="Activity_1ibcp7v" targetRef="Participant_0eqhu7r" />
+    <bpmn:messageFlow id="Flow_1w2m1sj" name="Producer response" sourceRef="Participant_0eqhu7r" targetRef="Activity_0dzplkk" />
+    <bpmn:messageFlow id="Flow_0izr4dt" name="Information request" sourceRef="Activity_0dzplkk" targetRef="Participant_0eqhu7r" />
+    <bpmn:messageFlow id="Flow_18fuqju" name="Surplus stock and content" sourceRef="Participant_0eqhu7r" targetRef="Activity_1ypcctx" />
+    <bpmn:messageFlow id="Flow_0q7kfzu" name="Payment request" sourceRef="Activity_1qefex1" targetRef="Participant_1f68kc9" />
+    <bpmn:messageFlow id="Flow_08j4eez" name="Payment result" sourceRef="Participant_1f68kc9" targetRef="Activity_1qefex1" />
+    <bpmn:textAnnotation id="TextAnnotation_1inllzo">
+      <bpmn:text>Proposed major functionality 1 (pending module-team agreement)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1ttaeit">
+      <bpmn:text>Proposed major functionality 2 (pending module-team agreement)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0tq637h">
+      <bpmn:text>Segments: young professionals and families; community groups; independent restaurants and cafés</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1sd9kgj" associationDirection="None" sourceRef="Participant_1kmdp14" targetRef="TextAnnotation_0tq637h" />
+    <bpmn:textAnnotation id="TextAnnotation_0asp50g">
+      <bpmn:text>~40 SMEs; technical capability varies widely</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0gvmux2" associationDirection="None" sourceRef="Participant_0eqhu7r" targetRef="TextAnnotation_0asp50g" />
+    <bpmn:association id="Association_17i51xe" associationDirection="None" sourceRef="Activity_1qefex1" targetRef="TextAnnotation_1ttaeit" />
+    <bpmn:association id="Association_0xht04m" associationDirection="None" sourceRef="Activity_0vd57je" targetRef="TextAnnotation_1inllzo" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_0ccldlc" name="Strategic BPMN v1" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_046m9z0">
+      <bpmn:lane id="Lane_07d7rav" name="Community &#38; Sustainability">
+        <bpmn:flowNodeRef>Activity_16wf8tf</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1ypcctx</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_1tekhxn" name="Quality &#38; Traceability">
+        <bpmn:flowNodeRef>Activity_0dzplkk</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_0e0nf52" name="Catalogue &#38; Listings">
+        <bpmn:flowNodeRef>Activity_1vj38q5</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0dn7y72</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_155wadl" name="Order Management">
+        <bpmn:flowNodeRef>Activity_0vd57je</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1xqg59a</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_16op4mb" name="Payments &#38; Settlement">
+        <bpmn:flowNodeRef>Activity_1qefex1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1ibcp7v</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:subProcess id="Activity_0dzplkk" name="Handle quality and safety concerns">
+      <bpmn:documentation>Case study: "Comprehensive records linking customers, products, and producers must enable rapid communication channels should quality issues or food safety concerns arise."
+
+Stakeholder goal: customers need prompt action on safety problems; producers need fair notice.
+
+Interfaces: receives Quality concern report (Customers) and Producer response (Producers); sends Information request (Producers) and Safety notification (Customers). A confirmed concern withdraws the affected listing.
+
+Scope note: Use Case 3 territory, not selected for Task 1.</bpmn:documentation>
+      <bpmn:outgoing>Flow_1p5d1ag</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="Activity_1vj38q5" name="Manage product listings and inventory">
+      <bpmn:documentation>Case study: "enabling producers to list items with seasonal availability updates and inventory management features"; "organic certification status, allergen warnings, and best-before dates".
+
+Stakeholder goal: producers, who vary widely in technical skill, need to list and update products without training; customers need trustworthy product information.
+
+Interfaces: receives Listing and stock updates from Producers; exchanges Certification check request and result with the Certification Service. Its output makes products browsable.
+
+Scope note: this is Use Case 1 territory, not selected for Task 1.</bpmn:documentation>
+      <bpmn:incoming>Flow_1p5d1ag</bpmn:incoming>
+      <bpmn:outgoing>Flow_0wg0sap</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="Activity_0vd57je" name="Place multi-vendor order">
+      <bpmn:documentation>Case study: "The checkout process must handle both single-vendor and multi-vendor orders seamlessly whilst maintaining clear communication about individual supplier responsibilities, delivery arrangements, and collection procedures."
+
+Use Case 2: "the system checks that all selected products are still available in the requested quantities. If an item is unavailable or there is insufficient stock, the customer is informed and asked to amend the order." The system "identifies the producers involved and determines the relevant delivery or collection arrangements", then "creates the overall marketplace order and separates it into the relevant producer-specific order elements."
+
+Stakeholder goal: customers want one checkout across several producers with clear responsibility for each part; producers receive only their own part of the order.
+
+Interfaces: receives Basket and checkout details; returns Order confirmation; hands the order to payment; supplies postcodes to food-miles reporting.
+
+Scope note: PROPOSED MAJOR FUNCTIONALITY 1, pending module-team agreement.</bpmn:documentation>
+      <bpmn:incoming>Flow_0qnd7rf</bpmn:incoming>
+      <bpmn:outgoing>Flow_0f6itqe</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0bpzwmy</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="Activity_0dn7y72" name="Browse and search catalogue">
+      <bpmn:documentation>Case study: "robust product browsing capabilities organised by clearly defined categories"; "search functionality"; "display of harvest dates, farm origin information, and seasonal availability indicators".
+
+Stakeholder goal: customers need to find local produce quickly and see where it comes from.
+
+Interfaces: receives Search and browse request from Customers; returns Product information. Leads to checkout.</bpmn:documentation>
+      <bpmn:incoming>Flow_0wg0sap</bpmn:incoming>
+      <bpmn:outgoing>Flow_0qnd7rf</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="Activity_1qefex1" name="Process payment and commission">
+      <bpmn:documentation>Case study: "A secure payment system must process transactions for both single and multiple vendor orders, distribute payments to respective producers according to agreed timeframes, and calculate the network's five percent commission automatically."
+
+Use Case 2: "Payment is submitted to an external or simulated payment service. If payment is successful, the order is confirmed, the appropriate inventory quantities are updated and the relevant producers are notified. If payment is declined, the customer is informed and given the opportunity to retry. If the payment service is temporarily unavailable, the process should follow an appropriate exception or retry path rather than simply terminating." The system "should calculate the amount attributable to each producer and calculate the marketplace's 5% commission."
+
+Stakeholder goal: the network needs automatic commission; customers need secure, compliant payment; producers need the correct share.
+
+Interfaces: sends Payment request to, and receives Payment result from, the Payment Provider (sandbox or simulated only). Success updates inventory and triggers producer fulfilment.
+
+Scope note: PROPOSED MAJOR FUNCTIONALITY 2, pending module-team agreement.</bpmn:documentation>
+      <bpmn:incoming>Flow_0f6itqe</bpmn:incoming>
+      <bpmn:outgoing>Flow_1dk267z</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="Activity_1xqg59a" name="Coordinate producer fulfilment">
+      <bpmn:documentation>Case study: "comprehensive visibility of incoming orders with adequate lead time (minimum 48 hours) to prepare products appropriately"; "delivery arrangements, and collection procedures".
+
+Stakeholder goal: producers need time to prepare; customers need clear delivery or collection arrangements.
+
+Interfaces: sends Order notification (48-hour lead time) to Producers; receives Fulfilment confirmation.
+
+Design decision: delivery is handled inside this process and by producers. The case study does not name a courier, so no separate courier participant is modelled.</bpmn:documentation>
+      <bpmn:incoming>Flow_1dk267z</bpmn:incoming>
+      <bpmn:outgoing>Flow_04uqx88</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="Activity_1ibcp7v" name="Settle producer payments weekly">
+      <bpmn:documentation>Case study: "weekly payment settlements with transparent audit trails suitable for tax reporting purposes and business accounting needs".
+
+Stakeholder goal: producers need predictable weekly income and records for tax.
+
+Interfaces: sends Settlement statement to Producers.</bpmn:documentation>
+      <bpmn:incoming>Flow_04uqx88</bpmn:incoming>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="Activity_16wf8tf" name="Report food miles">
+      <bpmn:documentation>Case study: "food miles calculations through postcode-based distance measurements, supporting the network's sustainability objectives".
+
+Stakeholder goal: the network's sustainability objectives.
+
+Design decision: modelled as an internal reporting process fed by order postcodes, with no external message flows.</bpmn:documentation>
+      <bpmn:incoming>Flow_0bpzwmy</bpmn:incoming>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="Activity_1ypcctx" name="Publish surplus offers and community content">
+      <bpmn:documentation>Case study: "surplus produce communication systems with last-minute discount capabilities to reduce food waste"; producers can "share seasonal recipes, storage guidance, and farm stories".
+
+Stakeholder goal: reduce food waste and strengthen community connection.
+
+Interfaces: receives Surplus stock and content from Producers; sends Surplus offers and community content to Customers.</bpmn:documentation>
+    </bpmn:subProcess>
+    <bpmn:sequenceFlow id="Flow_1p5d1ag" sourceRef="Activity_0dzplkk" targetRef="Activity_1vj38q5" />
+    <bpmn:sequenceFlow id="Flow_0wg0sap" sourceRef="Activity_1vj38q5" targetRef="Activity_0dn7y72" />
+    <bpmn:sequenceFlow id="Flow_0qnd7rf" sourceRef="Activity_0dn7y72" targetRef="Activity_0vd57je" />
+    <bpmn:sequenceFlow id="Flow_0f6itqe" sourceRef="Activity_0vd57je" targetRef="Activity_1qefex1" />
+    <bpmn:sequenceFlow id="Flow_0bpzwmy" sourceRef="Activity_0vd57je" targetRef="Activity_16wf8tf" />
+    <bpmn:sequenceFlow id="Flow_1dk267z" sourceRef="Activity_1qefex1" targetRef="Activity_1xqg59a" />
+    <bpmn:sequenceFlow id="Flow_04uqx88" sourceRef="Activity_1xqg59a" targetRef="Activity_1ibcp7v" />
+  </bpmn:process>
+  <bpmn:process id="Process_0r9cpgl" isExecutable="false" />
+  <bpmn:process id="Process_1qw2d1s" isExecutable="false" />
+  <bpmn:process id="Process_0lugs2t" isExecutable="false" />
+  <bpmn:process id="Process_031e8p6" isExecutable="false" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_19fqfyk">
+      <bpmndi:BPMNShape id="Participant_0djqv3n_di" bpmnElement="Participant_0djqv3n" isHorizontal="true">
+        <dc:Bounds x="160" y="880" width="1620" height="870" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_07d7rav_di" bpmnElement="Lane_07d7rav" isHorizontal="true">
+        <dc:Bounds x="190" y="1610" width="1590" height="140" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1tekhxn_di" bpmnElement="Lane_1tekhxn" isHorizontal="true">
+        <dc:Bounds x="190" y="880" width="1590" height="160" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0e0nf52_di" bpmnElement="Lane_0e0nf52" isHorizontal="true">
+        <dc:Bounds x="190" y="1040" width="1590" height="190" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_155wadl_di" bpmnElement="Lane_155wadl" isHorizontal="true">
+        <dc:Bounds x="190" y="1230" width="1590" height="180" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_16op4mb_di" bpmnElement="Lane_16op4mb" isHorizontal="true">
+        <dc:Bounds x="190" y="1410" width="1590" height="200" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1v6fuyz_di" bpmnElement="Activity_0dzplkk">
+        <dc:Bounds x="260" y="890" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0odjqwh_di" bpmnElement="Activity_1vj38q5">
+        <dc:Bounds x="430" y="1060" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_127idbx_di" bpmnElement="Activity_0vd57je" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="780" y="1250" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0z03p4r_di" bpmnElement="Activity_0dn7y72">
+        <dc:Bounds x="590" y="1060" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ca8l4b_di" bpmnElement="Activity_1qefex1" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="960" y="1440" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_146pgzr_di" bpmnElement="Activity_1xqg59a">
+        <dc:Bounds x="1150" y="1250" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_09b7q45_di" bpmnElement="Activity_1ibcp7v">
+        <dc:Bounds x="1360" y="1440" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0h3x2xa_di" bpmnElement="Activity_16wf8tf">
+        <dc:Bounds x="780" y="1630" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0nni94m_di" bpmnElement="Activity_1ypcctx">
+        <dc:Bounds x="1570" y="1630" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1p5d1ag_di" bpmnElement="Flow_1p5d1ag">
+        <di:waypoint x="360" y="930" />
+        <di:waypoint x="395" y="930" />
+        <di:waypoint x="395" y="1100" />
+        <di:waypoint x="430" y="1100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wg0sap_di" bpmnElement="Flow_0wg0sap">
+        <di:waypoint x="530" y="1100" />
+        <di:waypoint x="590" y="1100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qnd7rf_di" bpmnElement="Flow_0qnd7rf">
+        <di:waypoint x="690" y="1100" />
+        <di:waypoint x="735" y="1100" />
+        <di:waypoint x="735" y="1290" />
+        <di:waypoint x="780" y="1290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0f6itqe_di" bpmnElement="Flow_0f6itqe">
+        <di:waypoint x="880" y="1290" />
+        <di:waypoint x="920" y="1290" />
+        <di:waypoint x="920" y="1480" />
+        <di:waypoint x="960" y="1480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0bpzwmy_di" bpmnElement="Flow_0bpzwmy">
+        <di:waypoint x="830" y="1330" />
+        <di:waypoint x="830" y="1630" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1dk267z_di" bpmnElement="Flow_1dk267z">
+        <di:waypoint x="1060" y="1480" />
+        <di:waypoint x="1105" y="1480" />
+        <di:waypoint x="1105" y="1290" />
+        <di:waypoint x="1150" y="1290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04uqx88_di" bpmnElement="Flow_04uqx88">
+        <di:waypoint x="1250" y="1290" />
+        <di:waypoint x="1305" y="1290" />
+        <di:waypoint x="1305" y="1480" />
+        <di:waypoint x="1360" y="1480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_1kmdp14_di" bpmnElement="Participant_1kmdp14" isHorizontal="true">
+        <dc:Bounds x="160" y="500" width="1620" height="260" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_1t9zsx8_di" bpmnElement="Participant_1t9zsx8" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1620" height="250" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_0eqhu7r_di" bpmnElement="Participant_0eqhu7r" isHorizontal="true">
+        <dc:Bounds x="160" y="1860" width="1620" height="250" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_1f68kc9_di" bpmnElement="Participant_1f68kc9" isHorizontal="true">
+        <dc:Bounds x="160" y="2220" width="1620" height="250" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0xht04m_di" bpmnElement="Association_0xht04m">
+        <di:waypoint x="873" y="1251" />
+        <di:waypoint x="880" y="1245" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_17i51xe_di" bpmnElement="Association_17i51xe">
+        <di:waypoint x="1010" y="1440" />
+        <di:waypoint x="1010" y="1426" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1sd9kgj_di" bpmnElement="Association_1sd9kgj">
+        <di:waypoint x="1780" y="582" />
+        <di:waypoint x="1800" y="581" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0gvmux2_di" bpmnElement="Association_0gvmux2">
+        <di:waypoint x="1780" y="1962" />
+        <di:waypoint x="1800" y="1961" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1ttaeit_di" bpmnElement="TextAnnotation_1ttaeit">
+        <dc:Bounds x="960" y="1340" width="102.69530549866629" height="86" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1inllzo_di" bpmnElement="TextAnnotation_1inllzo">
+        <dc:Bounds x="880" y="1180" width="102.69530549866629" height="86" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0tq637h_di" bpmnElement="TextAnnotation_0tq637h">
+        <dc:Bounds x="1800" y="558" width="102.69530549866629" height="144" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0asp50g_di" bpmnElement="TextAnnotation_0asp50g">
+        <dc:Bounds x="1800" y="1940" width="102.69530549866629" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0fze0f9_di" bpmnElement="Flow_0fze0f9">
+        <di:waypoint x="340" y="760" />
+        <di:waypoint x="340" y="890" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="301" y="786" width="77" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1w2m1sj_di" bpmnElement="Flow_1w2m1sj">
+        <di:waypoint x="270" y="1860" />
+        <di:waypoint x="270" y="970" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="247" y="1796" width="46" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hkd6m9_di" bpmnElement="Flow_1hkd6m9">
+        <di:waypoint x="280" y="890" />
+        <di:waypoint x="280" y="760" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="236" y="843" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0izr4dt_di" bpmnElement="Flow_0izr4dt">
+        <di:waypoint x="340" y="970" />
+        <di:waypoint x="340" y="1860" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="312" y="1776" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ofzg8u_di" bpmnElement="Flow_1ofzg8u">
+        <di:waypoint x="440" y="330" />
+        <di:waypoint x="440" y="1060" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="395" y="351" width="89" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ciu8gg_di" bpmnElement="Flow_1ciu8gg">
+        <di:waypoint x="450" y="1860" />
+        <di:waypoint x="450" y="1140" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="409" y="1796" width="82" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jwx2kt_di" bpmnElement="Flow_0jwx2kt">
+        <di:waypoint x="520" y="1060" />
+        <di:waypoint x="520" y="330" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="485" y="391" width="69" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jynef7_di" bpmnElement="Flow_0jynef7">
+        <di:waypoint x="800" y="760" />
+        <di:waypoint x="800" y="1250" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="760" y="1045" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01zhcpi_di" bpmnElement="Flow_01zhcpi">
+        <di:waypoint x="860" y="1250" />
+        <di:waypoint x="860" y="760" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="830" y="925" width="60" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04h6ojk_di" bpmnElement="Flow_04h6ojk">
+        <di:waypoint x="670" y="760" />
+        <di:waypoint x="670" y="1060" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="632" y="896" width="76" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wal87s_di" bpmnElement="Flow_1wal87s">
+        <di:waypoint x="610" y="1050" />
+        <di:waypoint x="610" y="760" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="582" y="966" width="55" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08j4eez_di" bpmnElement="Flow_08j4eez">
+        <di:waypoint x="1040" y="2220" />
+        <di:waypoint x="1040" y="1520" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1003" y="2133" width="74" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0q7kfzu_di" bpmnElement="Flow_0q7kfzu">
+        <di:waypoint x="970" y="1520" />
+        <di:waypoint x="970" y="2220" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="928" y="2173" width="84" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03jfxfc_di" bpmnElement="Flow_03jfxfc">
+        <di:waypoint x="1160" y="1860" />
+        <di:waypoint x="1160" y="1330" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1130" y="1806" width="60" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vpre2o_di" bpmnElement="Flow_1vpre2o">
+        <di:waypoint x="1240" y="1330" />
+        <di:waypoint x="1240" y="1860" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1198" y="1780" width="84" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qu8hgm_di" bpmnElement="Flow_1qu8hgm">
+        <di:waypoint x="1410" y="1520" />
+        <di:waypoint x="1410" y="1860" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1383" y="1796" width="53" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18fuqju_di" bpmnElement="Flow_18fuqju">
+        <di:waypoint x="1620" y="1860" />
+        <di:waypoint x="1620" y="1710" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1576" y="1796" width="88" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01430g1_di" bpmnElement="Flow_01430g1">
+        <di:waypoint x="1620" y="1630" />
+        <di:waypoint x="1620" y="760" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1582" y="800" width="75" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_0vfoq9o">
+    <bpmndi:BPMNPlane id="BPMNPlane_1d6wahb" bpmnElement="Activity_0dzplkk" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_0qtr2fd">
+    <bpmndi:BPMNPlane id="BPMNPlane_1ghv0iq" bpmnElement="Activity_1vj38q5" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_0mn81z1">
+    <bpmndi:BPMNPlane id="BPMNPlane_02kpltg" bpmnElement="Activity_0vd57je" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_14pcrqy">
+    <bpmndi:BPMNPlane id="BPMNPlane_16wn2jf" bpmnElement="Activity_0dn7y72" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_0yhxh1a">
+    <bpmndi:BPMNPlane id="BPMNPlane_1uk3y7k" bpmnElement="Activity_1qefex1" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_0w6udtq">
+    <bpmndi:BPMNPlane id="BPMNPlane_1bmyhvj" bpmnElement="Activity_1xqg59a" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_042wvac">
+    <bpmndi:BPMNPlane id="BPMNPlane_10rkfin" bpmnElement="Activity_1ibcp7v" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1cv9wew">
+    <bpmndi:BPMNPlane id="BPMNPlane_1errzcu" bpmnElement="Activity_16wf8tf" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_04esyme">
+    <bpmndi:BPMNPlane id="BPMNPlane_0ubced6" bpmnElement="Activity_1ypcctx" />
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
