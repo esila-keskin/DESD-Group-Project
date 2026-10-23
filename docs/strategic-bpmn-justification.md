@@ -4,8 +4,11 @@
 
 ### Manage product listings and inventory
 Case study: "enabling producers to list items with seasonal availability updates and inventory management features"; "organic certification status, allergen warnings, and best-before dates".
+
 Stakeholder goal: producers, who vary widely in technical skill, need to list and update products without training; customers need trustworthy product information.
+
 Interfaces: receives Listing and stock updates from Producers; exchanges Certification check request and result with the Certification Service. Its output makes products browsable.
+
 Scope note: this is Use Case 1 territory, not selected for Task 1.
 
 ### Browse and search catalogue
