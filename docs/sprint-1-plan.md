@@ -4,7 +4,7 @@ Group 51, Bristol Regional Food Network (Use Case 2)
 
 Board: https://github.com/users/esila-keskin/projects/1
 
-## Sprint goal
+## Sprint goal 
 
 By the Sprint 1 review on Thursday 29 October 2026 at 14:00, the group has a strategic BPMN model of the whole network, a justified choice of two candidate functionalities from Use Case 2, a prioritised and estimated product backlog for Sprints 1 to 3, and a repository that shows who contributed what.
 
