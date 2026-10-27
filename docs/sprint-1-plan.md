@@ -56,7 +56,7 @@ An item is done when:
 
 - One branch per item and one pull request, with "closes #n" in the description.
 - Every pull request is reviewed by someone other than its author before it is merged.
-- Stand-ups are held regularly and recorded in the repository.
+- Each member prepares an individual update before every scheduled stand-up (done, planned, impediments, evidence of contribution) and links their evidence to issues and pull requests.
 - Contributions are recorded in CONTRIBUTIONS.md as work is done, not afterwards.
 - Esila Keskin coordinates the project and administers the repository; each member owns the items assigned to them on the board.
 
