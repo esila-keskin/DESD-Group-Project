@@ -1,6 +1,6 @@
 # Decisions, assumptions, open questions and risks: Sprint 1
 
-Group 51, Bristol Regional Food Network (Use Case 2). Status as of 27 October 2026.
+Group 51, Bristol Regional Food Network (Use Case 2). Status as of 28 October 2026.
 
 This record explains the choices made in Sprint 1 and what we have not yet confirmed, so that a reader can see the reasoning without asking. Each decision gives its source, the alternative we rejected, and its status. "Candidate" means proposed for Sprint 1 and to be confirmed with the module team before Sprint 2 implementation begins, as the brief requires.
 
@@ -50,7 +50,7 @@ The module team will be contacted about Q1 to Q6 together, after the Sprint 1 su
 
 | ID | Risk | Effect | Action | Owner |
 |---|---|---|---|---|
-| R1 | One member has not responded to any message | Work falls to the other members | Dated attempts to make contact are recorded in CONTRIBUTIONS.md, as the brief asks. The module team will be informed in the email under Q1 to Q6 | Esila |
+| R1 | One registered member did not take part | Work would fall to the other members | Closed: the module team removed that member from the group, so the group has four members and the work is shared among them | Esila |
 | R2 | The module team may draw the notification boundary differently (Q1) | The scope could be adjusted | Notification is kept as one separable step in the model, so it can move between functionalities without redesign. Confirmation before Sprint 2 | Esila |
 | R3 | The payment sandbox is our choice and not yet confirmed (Q3) | Affects the Sprint 2 service tasks | A local simulated service lets us trigger declined and unavailable responses. Confirmation before Sprint 2 | Ella |
 | R4 | Sprint 2 is planned at 67 points, more than Sprints 1 and 3 | The plan could be unrealistic | Rebalance at the start of Sprint 2 using the real Sprint 1 speed | Esila |
@@ -59,4 +59,4 @@ The module team will be contacted about Q1 to Q6 together, after the Sprint 1 su
 | R7 | The candidate functionalities are not yet confirmed | If the module team changes the scope, Sprint 2 work would need to be redone | Detailed operational modelling starts only after confirmation, as the brief requires. The functionality document and the hand-off are kept short and explicit | Esila |
 | R8 | Modelling, repository administration and project coordination are held by one person | A single point of failure for Sprint 2 | Every backlog item has a named owner; each pull request is reviewed by someone else; the board and this record are visible to all members | Group |
 
-Last updated: 27 October 2026.
+Last updated: 28 October 2026.

@@ -1,6 +1,6 @@
 # Traceability matrix: Sprint 1
 
-Group 51, Bristol Regional Food Network (Use Case 2). Status as of 27 October 2026.
+Group 51, Bristol Regional Food Network (Use Case 2). Status as of 28 October 2026.
 
 This document shows how each stakeholder goal is carried through the strategic BPMN model, the requirements and the product backlog. It answers the brief's requirement for "clear alignment between the strategic process model and the stakeholder goals and dependencies". The i* Strategic Dependency and Rationale models are assessed in Sprint 2; this matrix is the Sprint 1 starting point for them.
 
@@ -70,7 +70,8 @@ These are drawn from the case study. They are our first reading and will be refi
 | Marketplace platform | Certification Service | Organic certification is verified | Task |
 | Marketplace platform | Producers | Accurate listings and stock levels | Resource |
 | Marketplace platform | Customers | Payment for the order | Resource |
-| Marketplace platform (the network) | Payment calculation | The 5% commission is calculated correctly | Goal |
+
+The 5% commission is not in this table, because an i\* dependency links two actors and the commission calculation is not an actor. It is an internal goal of the Marketplace platform, inside its Payments and Settlement function, and it will appear in the i\* Strategic Rationale model (M6) inside the platform's boundary. The dependency between actors that relies on it, producers depending on the platform for the correct share of each payment with an audit trail, is already in the table.
 
 Softgoals from the case study that the i* SR model will develop: ease of use for producers (NFR1), secure payment (NFR2), regulatory compliance (NFR3), trust in the money calculations, food-waste reduction, sustainability.
 
@@ -98,6 +99,6 @@ Softgoals from the case study that the i* SR model will develop: ease of use for
 ## 6. How this feeds Sprint 2
 
 - The **i\* Strategic Dependency model** (M5) will take its actors from the five pools and its dependencies from the message flows in section 2 and the dependency table in section 4.
-- The **i\* Strategic Rationale model** (M6) will take its goals and softgoals from the "Goal" column in section 1.
+- The **i\* Strategic Rationale model** (M6) will take its goals and softgoals from the "Goal" column in section 1, and the platform's internal goals, such as the 5% commission calculation (see the note under section 4).
 - The **operational BPMN models** for Functionality 1 (M7) and Functionality 2 (M8) will each refine one strategic process and keep the same message flows as their external interface, so the strategic and operational models stay consistent.
 - The matrix is updated whenever the backlog or the model changes, and the version in the repository at each sprint submission is the one that counts.
