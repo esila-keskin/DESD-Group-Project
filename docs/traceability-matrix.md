@@ -54,6 +54,7 @@ The model has 18 message flows in total. The sequence flows between processes ar
 | NFR4 test environments only | US8 (sandbox or simulated service) | Payment Provider pool; M8 |
 | NFR7 payment flow must not simply stop when the service is unavailable | US13 | Process payment and commission; M8 |
 | NFR2, NFR3 secure, compliant payment | applied as design constraints in M8 and T2 (no card data held; see L2) | Process payment and commission |
+| Happy path and exception paths can be tested end to end (FR18, FR19) | T4. The outline is in docs/test-plan-outline.md: order placed and paid, insufficient stock, payment declined then retried, payment service unavailable | M7 and M8 |
 
 ## 4. Stakeholder dependencies (the starting point for the i* Strategic Dependency model)
 

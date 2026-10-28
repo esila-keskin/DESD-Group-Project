@@ -21,15 +21,30 @@ Evidence is the commit history, pull requests and issues in this repository, and
 | 24 October 2026 | Wrote and merged the Sprint 1 plan | docs/sprint-1-plan.md; pull request #36; issue #7 |
 | 24 October 2026 | Wrote and merged the case study analysis | docs/case-study-analysis.md; pull request #37; issue #3 |
 | 25 October 2026 | Wrote the legal, ethical, social and professional considerations | docs/lesp-considerations.md; issue #5 |
+| 27 October 2026 | Added the roles, board link and generative AI declaration to the README, and updated the functionality selection document and the Sprint 1 plan | Commits 24e78f2, b1fab91, 7f06ad6 and 7b6349f |
+| 27 October 2026 | Wrote the traceability matrix and the decisions, assumptions, open questions and risks record | docs/traceability-matrix.md; docs/decisions-and-assumptions.md; pull request #40 |
+| 28 October 2026 | Revised the traceability matrix after the review comment on the i\* dependency table | Pull request #40 |
 
-### Other members
+### Mahtab Bin Lokman (GitHub: justmahtab)
 
-| Member | GitHub | Commits | Issues | Status |
-|---|---|---|---|---|
-| Mahtab Bin Lokman | not yet added | none yet | none yet | Has replied to group messages. Items to be agreed at the meeting on 26 October 2026 |
-| Dylan Morgan | not yet added | none yet | none yet | Has replied to group messages. Items to be agreed at the meeting on 26 October 2026 |
-| Bruno Pedro | not yet added | none yet | none yet | Has replied to group messages. Items to be agreed at the meeting on 26 October 2026 |
-| Harry Baldrian | not yet added | none | none | Has not replied. See section 2 |
+| Date | Work | Evidence |
+|---|---|---|
+| 27 to 28 October 2026 | Commented on the user stories US1, US2, US4 and US6 with open questions and suggestions | Comments on issues #10, #11, #12 and #13 |
+| 28 October 2026 | Reviewed and approved the traceability matrix and decisions record, with a question about the i\* dependency table | Review on pull request #40 |
+| 28 October 2026 | Wrote the open questions and suggestions for Functionality 1 | docs/f1-open-questions.md; pull request #43 |
+| 28 October 2026 | Wrote his generative AI statement in the README | Commit 46d27d0 |
+
+### Dylan (Ella) Morgan (GitHub: SxyIronGolem)
+
+| Date | Work | Evidence |
+|---|---|---|
+| 27 October 2026 | Commented on US12 (exception case, a limit on payment attempts, the order after a successful retry) and on US8 (what is passed to the simulated payment service) | Comments on issues #28 and #14 |
+
+### Bruno Pedro (GitHub: brunopedro2910)
+
+| Date | Work | Evidence |
+|---|---|---|
+| 27 October 2026 | Wrote the test plan outline for the happy path and three exception paths | docs/test-plan-outline.md; pull request #42 |
 
 ## 2. Communication with the group
 
@@ -44,3 +59,9 @@ Owners are agreed at group meetings and recorded here with the date. Until then 
 
 | Date agreed | Item | Owner |
 |---|---|---|
+
+## 4. Roles and membership
+
+The group has four members: Esila Keskin, Mahtab Bin Lokman, Dylan (Ella) Morgan and Bruno Pedro. Harry Baldrian was removed from the group by the module team.
+
+Roles are recorded in the README (commit 24e78f2). Project coordination is held by Esila Keskin, who is also the repository administrator. Bruno Pedro's role is implementation and testing.
