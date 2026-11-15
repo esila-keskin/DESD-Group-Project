@@ -1,0 +1,20 @@
+{
+  "basketItems": [
+    {
+      "productId": "P1",
+      "productName": "Free-range eggs (6)",
+      "producerId": "PR1",
+      "producerName": "Hillside Farm",
+      "quantity": 2,
+      "unitPricePence": 320
+    },
+    {
+      "productId": "P3",
+      "productName": "Wildflower honey (340 g)",
+      "producerId": "PR1",
+      "producerName": "Hillside Farm",
+      "quantity": 1,
+      "unitPricePence": 650
+    }
+  ]
+}
