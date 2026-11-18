@@ -27,6 +27,3 @@ Group 51, Bristol Regional Food Network (Use Case 2). Questions about "basket to
 
 **Q5:** Who decides whether each producer's part of the order is delivered or collected: the customer, the producer or the system?
 **Suggestion:** Each producer sets what they offer like (delivery, collection or both) and the customers chooses from that at the time of checkout.
-
-**Q5:** Who decides whether each producer's part of the order is delivered or collected: the customer, the producer or the system?
-**Suggestion:** *(your choice, see below)*
