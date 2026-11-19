@@ -8,9 +8,9 @@ An automated business process for the fictional Bristol Regional Food Network, a
 ## Chosen use case
 **Use Case 2: Customer Multi-Vendor Order, Checkout and Payment.**
 
-Proposed major functionalities (pending module-team agreement):
+Major functionalities:
 1. **Basket to order:** availability check with amend loop, delivery or collection decision, customer confirmation, order creation and per-producer split.
-2. **Payment and commission:** payment via a sandbox service with approved, declined-with-retry and unavailable paths; inventory update; producer notification; per-producer amounts and 5% commission.
+2. **Payment and commission:** payment via a simulated service with approved, declined-with-retry and unavailable paths; inventory update; producer notification; per-producer amounts and 5% commission.
 
 ## Group
 | Student | ID | Role |
@@ -19,6 +19,27 @@ Proposed major functionalities (pending module-team agreement):
 | Mahtab Bin Lokman | 24038250 | Functionality 1 lead (basket to order) |
 | Dylan (Ella) Morgan | 24030018 | Functionality 2 lead (payment and commissions) |
 | Bruno Pedro | 22074709 | Implementation, testing |
+
+## Sprint 2 deliverables
+- i* Strategic Dependency model: [`models/istar/istar-sd.png`](models/istar/istar-sd.png) (piStar file `istar-sd.txt`)
+- i* Strategic Rationale model: [`models/istar/istar-sr.png`](models/istar/istar-sr.png) (piStar file `istar-sr.txt`)
+- Rationale for both i* models: [`docs/istar-rationale.md`](docs/istar-rationale.md)
+- Operational BPMN, Functionality 1: [`models/operational/m7-place-multivendor-order.bpmn`](models/operational/m7-place-multivendor-order.bpmn)
+- Operational BPMN, Functionality 2: [`models/operational/m8-process-payment-commission.bpmn`](models/operational/m8-process-payment-commission.bpmn)
+- Justification of the operational models: [`docs/operational-bpmn-justification.md`](docs/operational-bpmn-justification.md)
+- Camunda forms: [`camunda/forms/`](camunda/forms/)
+- Saved Camunda Test mode cases: [`camunda/tests/`](camunda/tests/)
+- Job worker: [`workers/`](workers/)
+- Process variables: [`docs/process-variables.md`](docs/process-variables.md)
+- Test data: [`test-data/`](test-data/)
+- Test results and evidence: [`docs/test-results.md`](docs/test-results.md), [`docs/test-evidence/`](docs/test-evidence/)
+- Traceability matrix, updated for Sprint 2: [`docs/traceability-matrix.md`](docs/traceability-matrix.md)
+- Sprint 2 plan and review: [`docs/sprint-2-plan.md`](docs/sprint-2-plan.md)
+- Payment scenarios and commission examples: [`docs/payment-scenarios.md`](docs/payment-scenarios.md)
+
+![Functionality 1](models/operational/m7-place-multivendor-order.png)
+
+![Functionality 2](models/operational/m8-process-payment-commission.png)
 
 ## Sprint 1 deliverables
 - Strategic BPMN: [`models/strategic/strategic-bpmn-v1.bpmn`](models/strategic/strategic-bpmn-v1.bpmn) ([SVG](models/strategic/strategic-bpmn-v1.svg))
@@ -36,11 +57,17 @@ Proposed major functionalities (pending module-team agreement):
 
 ![Strategic BPMN](models/strategic/strategic-bpmn-v1.svg)
 
-## Opening the models
-Import the `.bpmn` file into Camunda 8 Web Modeler, or view the SVG directly.
+## Running the processes
+1. Import the five `.form` files and the two operational `.bpmn` files into a Camunda 8 Web Modeler project.
+2. Deploy the forms and both processes to a cluster. Deploy `process-payment-commission` before `place-multivendor-order`, since the second calls the first.
+3. Start the worker: see [`workers/README.md`](workers/README.md).
+4. Start `place-multivendor-order` with one of the basket files in `test-data/` plus an `orderId`, or start `process-payment-commission` on its own with the start variables in `docs/test-results.md`.
+5. Complete the forms in Web Modeler Test mode or in Tasklist, and follow the instance in Operate.
 
 ## Validation notes
-The strategic BPMN is deliberately non-executable. Camunda's Implement-mode checks flag the pools as non-executable and the collapsed sub-processes as lacking start and end events. This is expected at the strategic level; the two selected functionalities become executable operational models in Sprint 2.
+The strategic BPMN is deliberately non-executable. Camunda's Implement-mode checks flag its pools as non-executable and the collapsed sub-processes as lacking start and end events, which is expected at the strategic level.
+
+Both operational models pass the Camunda 8.10 checks with no errors. The only notice left is Test mode's warning that it cannot fast-forward timers.
 
 ## Working agreement
 Everyone commits under their own account. Work on a branch and open a pull request. Commit messages name the task. Every pull request is reviewed by someone other than its author.
