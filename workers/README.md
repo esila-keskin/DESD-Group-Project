@@ -24,6 +24,4 @@ Run `npm test`. The tests check the available-stock and insufficient-stock baske
 
 ## Notes
 
-- No real payment service is called. Only a simulated payment service is permitted for this project.
 - Variable names follow `docs/process-variables.md`.
-- Credentials belong only in `workers/.env`, which is ignored by Git.
