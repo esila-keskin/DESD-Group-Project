@@ -1,7 +1,7 @@
 # Functionality 1: open questions
 
 Group 51, Bristol Regional Food Network (Use Case 2). Questions about "basket to order" that the case study and use case do not fully answer, each with a suggested answer.
-
+ 
 # Basket
 
 **Q1:** What happens if a customer adds the same product twice?
