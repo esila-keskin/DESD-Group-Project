@@ -1,0 +1,522 @@
+{
+  "processId": "place-multivendor-order",
+  "testCases": [
+    {
+      "name": "T1 Happy path, two producers",
+      "description": "In stock, delivery and collection chosen, confirmed. Payment form in the called process completed in Tasklist. Approved, total 1090, commission 55. Ends at Order placed.",
+      "instructions": [
+        {
+          "type": "CREATE_PROCESS_INSTANCE",
+          "processDefinitionSelector": {
+            "processDefinitionId": "place-multivendor-order"
+          },
+          "variables": {
+            "orderId": "ORD-1001",
+            "basketItems": [
+              {
+                "productId": "P1",
+                "productName": "Free-range eggs (6)",
+                "producerId": "PR1",
+                "producerName": "Hillside Farm",
+                "quantity": 2,
+                "unitPricePence": 320
+              },
+              {
+                "productId": "P2",
+                "productName": "Sourdough loaf",
+                "producerId": "PR2",
+                "producerName": "Old Mill Bakery",
+                "quantity": 1,
+                "unitPricePence": 450
+              }
+            ]
+          },
+          "runtimeInstructions": [
+            {
+              "type": "TERMINATE_PROCESS_INSTANCE",
+              "afterElementId": "Event_1g1yqnp"
+            }
+          ]
+        },
+        {
+          "type": "COMPLETE_USER_TASK",
+          "userTaskSelector": {
+            "elementId": "Activity_0stcl0p"
+          },
+          "variables": {
+            "customerName": "Test Customer",
+            "customerEmail": "test.customer@example.com"
+          }
+        },
+        {
+          "type": "COMPLETE_USER_TASK",
+          "userTaskSelector": {
+            "elementId": "Activity_1dzz5rv"
+          },
+          "variables": {
+            "producerParts": [
+              {
+                "fulfilmentMethod": "delivery"
+              },
+              {
+                "fulfilmentMethod": "collection"
+              }
+            ],
+            "orderConfirmed": true
+          }
+        }
+      ],
+      "metadata": {
+        "processInstanceId": "4503599681455260",
+        "coveredFlowNodes": [
+          {
+            "flowNodeId": "StartEvent_1",
+            "elementType": "bpmn:StartEvent"
+          },
+          {
+            "flowNodeId": "Activity_0stcl0p",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Gateway_17koz3k",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Activity_1o5tk8a",
+            "elementType": "bpmn:ServiceTask"
+          },
+          {
+            "flowNodeId": "Gateway_1c9lh01",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Activity_0adeec0",
+            "elementType": "bpmn:ScriptTask"
+          },
+          {
+            "flowNodeId": "Activity_1dzz5rv",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Gateway_05vttvi",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Activity_0dz05sb",
+            "elementType": "bpmn:CallActivity"
+          },
+          {
+            "flowNodeId": "Gateway_0pzgw2d",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Event_1g1yqnp",
+            "elementType": "bpmn:EndEvent"
+          }
+        ],
+        "coveredSequenceFlows": [
+          "Flow_1kvican",
+          "Flow_1xnpk9v",
+          "Flow_1q0zp5u",
+          "Flow_12vwq71",
+          "Flow_0ww3pby",
+          "Flow_00if9ie",
+          "Flow_10o22ff",
+          "Flow_0zn7pe7",
+          "Flow_134c5e9",
+          "Flow_0ljre5m"
+        ]
+      }
+    },
+    {
+      "name": "T2 Short stock, customer amends",
+      "description": "Eggs requested 4, only 3 in stock. Customer lowered eggs to 3 on the amend form, stock checked again and passed. Delivery or collection chosen, confirmed, payment approved in Tasklist. Total 1410, commission 48 + 23 = 71. Ends at Order placed.",
+      "instructions": [
+        {
+          "type": "CREATE_PROCESS_INSTANCE",
+          "processDefinitionSelector": {
+            "processDefinitionId": "place-multivendor-order"
+          },
+          "variables": {
+            "orderId": "ORD-1002",
+            "basketItems": [
+              {
+                "productId": "P1",
+                "productName": "Free-range eggs (6)",
+                "producerId": "PR1",
+                "producerName": "Hillside Farm",
+                "quantity": 4,
+                "unitPricePence": 320
+              },
+              {
+                "productId": "P2",
+                "productName": "Sourdough loaf",
+                "producerId": "PR2",
+                "producerName": "Old Mill Bakery",
+                "quantity": 1,
+                "unitPricePence": 450
+              }
+            ]
+          },
+          "runtimeInstructions": [
+            {
+              "type": "TERMINATE_PROCESS_INSTANCE",
+              "afterElementId": "Event_1g1yqnp"
+            }
+          ]
+        },
+        {
+          "type": "COMPLETE_USER_TASK",
+          "userTaskSelector": {
+            "elementId": "Activity_0stcl0p"
+          },
+          "variables": {
+            "customerName": "Test Customer",
+            "customerEmail": "test.customer@example.com"
+          }
+        },
+        {
+          "type": "COMPLETE_USER_TASK",
+          "userTaskSelector": {
+            "elementId": "Activity_1y0mbbh"
+          },
+          "variables": {
+            "basketItems": [
+              {
+                "quantity": 3
+              },
+              {
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "COMPLETE_USER_TASK",
+          "userTaskSelector": {
+            "elementId": "Activity_1dzz5rv"
+          },
+          "variables": {
+            "producerParts": [
+              {
+                "fulfilmentMethod": "delivery"
+              },
+              {
+                "fulfilmentMethod": "delivery"
+              }
+            ],
+            "orderConfirmed": true
+          }
+        }
+      ],
+      "metadata": {
+        "processInstanceId": "4503599681457990",
+        "coveredFlowNodes": [
+          {
+            "flowNodeId": "StartEvent_1",
+            "elementType": "bpmn:StartEvent"
+          },
+          {
+            "flowNodeId": "Activity_0stcl0p",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Gateway_17koz3k",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Activity_1o5tk8a",
+            "elementType": "bpmn:ServiceTask"
+          },
+          {
+            "flowNodeId": "Gateway_1c9lh01",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Activity_1y0mbbh",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Activity_0adeec0",
+            "elementType": "bpmn:ScriptTask"
+          },
+          {
+            "flowNodeId": "Activity_1dzz5rv",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Gateway_05vttvi",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Activity_0dz05sb",
+            "elementType": "bpmn:CallActivity"
+          },
+          {
+            "flowNodeId": "Gateway_0pzgw2d",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Event_1g1yqnp",
+            "elementType": "bpmn:EndEvent"
+          }
+        ],
+        "coveredSequenceFlows": [
+          "Flow_1kvican",
+          "Flow_0zxadwa",
+          "Flow_1q0zp5u",
+          "Flow_12vwq71",
+          "Flow_0ww3pby",
+          "Flow_00if9ie",
+          "Flow_10o22ff",
+          "Flow_0zn7pe7",
+          "Flow_1xnpk9v",
+          "Flow_0ylglla",
+          "Flow_134c5e9",
+          "Flow_0ljre5m"
+        ]
+      }
+    },
+    {
+      "name": "T5 One producer, two items",
+      "description": "Eggs and honey, both from Hillside Farm. Split order produced one producer part of 1290. Delivery chosen, confirmed, payment approved in Tasklist. Commission 64.5 rounded half up to 65, producer receives 1225. One producer notification. Ends at Order placed.",
+      "instructions": [
+        {
+          "type": "CREATE_PROCESS_INSTANCE",
+          "processDefinitionSelector": {
+            "processDefinitionId": "place-multivendor-order"
+          },
+          "variables": {
+            "orderId": "ORD-1005",
+            "basketItems": [
+              {
+                "productId": "P1",
+                "productName": "Free-range eggs (6)",
+                "producerId": "PR1",
+                "producerName": "Hillside Farm",
+                "quantity": 2,
+                "unitPricePence": 320
+              },
+              {
+                "productId": "P3",
+                "productName": "Wildflower honey (340 g)",
+                "producerId": "PR1",
+                "producerName": "Hillside Farm",
+                "quantity": 1,
+                "unitPricePence": 650
+              }
+            ]
+          },
+          "runtimeInstructions": [
+            {
+              "type": "TERMINATE_PROCESS_INSTANCE",
+              "afterElementId": "Event_1g1yqnp"
+            }
+          ]
+        },
+        {
+          "type": "COMPLETE_USER_TASK",
+          "userTaskSelector": {
+            "elementId": "Activity_0stcl0p"
+          },
+          "variables": {
+            "customerName": "Test Customer",
+            "customerEmail": "test.customer@example.com"
+          }
+        },
+        {
+          "type": "COMPLETE_USER_TASK",
+          "userTaskSelector": {
+            "elementId": "Activity_1dzz5rv"
+          },
+          "variables": {
+            "producerParts": [
+              {
+                "fulfilmentMethod": "delivery"
+              }
+            ],
+            "orderConfirmed": true
+          }
+        }
+      ],
+      "metadata": {
+        "processInstanceId": "4503599681462852",
+        "coveredFlowNodes": [
+          {
+            "flowNodeId": "StartEvent_1",
+            "elementType": "bpmn:StartEvent"
+          },
+          {
+            "flowNodeId": "Activity_0stcl0p",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Gateway_17koz3k",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Activity_1o5tk8a",
+            "elementType": "bpmn:ServiceTask"
+          },
+          {
+            "flowNodeId": "Gateway_1c9lh01",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Activity_0adeec0",
+            "elementType": "bpmn:ScriptTask"
+          },
+          {
+            "flowNodeId": "Activity_1dzz5rv",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Gateway_05vttvi",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Activity_0dz05sb",
+            "elementType": "bpmn:CallActivity"
+          },
+          {
+            "flowNodeId": "Gateway_0pzgw2d",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Event_1g1yqnp",
+            "elementType": "bpmn:EndEvent"
+          }
+        ],
+        "coveredSequenceFlows": [
+          "Flow_1xnpk9v",
+          "Flow_1q0zp5u",
+          "Flow_12vwq71",
+          "Flow_0ww3pby",
+          "Flow_00if9ie",
+          "Flow_10o22ff",
+          "Flow_0zn7pe7",
+          "Flow_1kvican",
+          "Flow_134c5e9",
+          "Flow_0ljre5m"
+        ]
+      }
+    },
+    {
+      "name": "T3 Customer does not confirm",
+      "description": "In stock, delivery or collection chosen, but the confirm box left unticked. Order confirmed? took the No path. Ends at Order cancelled by customer. Payment process not started, no payment or order status set.",
+      "instructions": [
+        {
+          "type": "CREATE_PROCESS_INSTANCE",
+          "processDefinitionSelector": {
+            "processDefinitionId": "place-multivendor-order"
+          },
+          "variables": {
+            "orderId": "ORD-1003",
+            "basketItems": [
+              {
+                "productId": "P1",
+                "productName": "Free-range eggs (6)",
+                "producerId": "PR1",
+                "producerName": "Hillside Farm",
+                "quantity": 2,
+                "unitPricePence": 320
+              },
+              {
+                "productId": "P2",
+                "productName": "Sourdough loaf",
+                "producerId": "PR2",
+                "producerName": "Old Mill Bakery",
+                "quantity": 1,
+                "unitPricePence": 450
+              }
+            ]
+          },
+          "runtimeInstructions": [
+            {
+              "type": "TERMINATE_PROCESS_INSTANCE",
+              "afterElementId": "Event_0yh4ivp"
+            }
+          ]
+        },
+        {
+          "type": "COMPLETE_USER_TASK",
+          "userTaskSelector": {
+            "elementId": "Activity_0stcl0p"
+          },
+          "variables": {
+            "customerName": "Test Customer",
+            "customerEmail": "test.customer@example.com"
+          }
+        },
+        {
+          "type": "COMPLETE_USER_TASK",
+          "userTaskSelector": {
+            "elementId": "Activity_1dzz5rv"
+          },
+          "variables": {
+            "producerParts": [
+              {
+                "fulfilmentMethod": "delivery"
+              },
+              {
+                "fulfilmentMethod": "delivery"
+              }
+            ],
+            "orderConfirmed": false
+          }
+        }
+      ],
+      "metadata": {
+        "processInstanceId": "4503599681463976",
+        "coveredFlowNodes": [
+          {
+            "flowNodeId": "StartEvent_1",
+            "elementType": "bpmn:StartEvent"
+          },
+          {
+            "flowNodeId": "Activity_0stcl0p",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Gateway_17koz3k",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Activity_1o5tk8a",
+            "elementType": "bpmn:ServiceTask"
+          },
+          {
+            "flowNodeId": "Gateway_1c9lh01",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Activity_0adeec0",
+            "elementType": "bpmn:ScriptTask"
+          },
+          {
+            "flowNodeId": "Activity_1dzz5rv",
+            "elementType": "bpmn:UserTask"
+          },
+          {
+            "flowNodeId": "Gateway_05vttvi",
+            "elementType": "bpmn:ExclusiveGateway"
+          },
+          {
+            "flowNodeId": "Event_0yh4ivp",
+            "elementType": "bpmn:EndEvent"
+          }
+        ],
+        "coveredSequenceFlows": [
+          "Flow_1xnpk9v",
+          "Flow_1q0zp5u",
+          "Flow_12vwq71",
+          "Flow_0ww3pby",
+          "Flow_00if9ie",
+          "Flow_1kvican",
+          "Flow_10o22ff",
+          "Flow_0x1edo8"
+        ]
+      }
+    }
+  ]
+}
