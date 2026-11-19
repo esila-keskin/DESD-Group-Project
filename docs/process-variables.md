@@ -4,9 +4,8 @@ Group 51, Bristol Regional Food Network (Use Case 2). These variables are shared
 
 ## Rules
 
-- All monetary values use whole pence (integers), never pounds with decimals. The 5% commission is rounded half up once per producer.
-- Card numbers are fictional test data. The case study forbids live payment systems and real financial data. `testCardNumber` is cleared after the payment step.
-- No real personal data is used during testing.
+- Money is stored in whole pence. Commission is 5% per producer, rounded half up.
+- `testCardNumber` is set to null by the output mapping on Take payment, so it is not kept in the process data after the payment step.
 
 | Variable | Type | Set by | Example |
 |---|---|---|---|
@@ -20,15 +19,16 @@ Group 51, Bristol Regional Food Network (Use Case 2). These variables are shared
 | `orderTotalPence` | whole number | Functionality 1, when the order is split | `1090` |
 | `orderConfirmed` | true / false | form `f1-confirm-order` | `true` |
 | `cardholderName` | text | form `f2-enter-payment` | `"Test Customer"` |
-| `testCardNumber` | text, 16 digits, fictional | form `f2-enter-payment`; cleared after payment | `"1234123412341234"` |
-| `paymentScenario` | `approve` / `decline` / `unavailable` (testing only) | form `f2-enter-payment` | `"approve"` |
-| `paymentStatus` | `APPROVED` / `DECLINED` / `UNAVAILABLE` | worker `take-payment` | `"APPROVED"` |
+| `testCardNumber` | text, 16 digits | form `f2-enter-payment`; set to null by Take payment | `"1234123412341234"` |
+| `paymentScenario` | `approve` / `decline` / `unavailable` | form `f2-enter-payment`; read by worker `take-payment` | `"approve"` |
+| `paymentStatus` | `APPROVED` / `DECLINED` | worker `take-payment` | `"APPROVED"` |
 | `paymentAttempts` | whole number, maximum 3 | Functionality 2, counted on each attempt | `1` |
 | `retryPayment` | true / false | form `f2-retry-payment` | `true` |
+| `retryDelay` | ISO 8601 duration, optional | start variables; default `PT10S` when not set | `"PT1S"` (test F2-e) |
 | `producerShares` | list of `{producerId, grossPence, commissionPence, netPence}` | Functionality 2, commission calculation | `[{"producerId":"PR1","grossPence":640,"commissionPence":32,"netPence":608}]` |
-| `commissionTotalPence` | whole number | Functionality 2, commission calculation | `55` |
+| `commissionTotalPence` | whole number | Functionality 2, end event Order paid | `55` |
 | `orderStatus` | `CONFIRMED` / `UNPAID` | Functionality 2, at the end | `"CONFIRMED"` |
 
 ## Hand-off between the processes
 
-Functionality 1 passes `orderId`, `customerName`, `customerEmail`, `basketItems`, `producerParts` and `orderTotalPence` to Functionality 2 through the call activity. Functionality 2 returns `paymentStatus`, `producerShares`, `commissionTotalPence` and `orderStatus`.
+Functionality 1 passes `orderId`, `customerName`, `customerEmail`, `basketItems`, `producerParts` and `orderTotalPence` to Functionality 2 through the call activity. Functionality 2 returns `paymentStatus`, `paymentAttempts`, `producerShares`, `commissionTotalPence` and `orderStatus`. An unavailable payment service is not a status: the worker throws the BPMN error `PAYMENT_UNAVAILABLE`, which the error boundary event on Take payment catches.
