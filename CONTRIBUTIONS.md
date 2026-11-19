@@ -6,7 +6,7 @@ This log records who did what, with links to the evidence in this repository. It
 
 ## 1. Work completed
 
-Evidence is the commit history, pull requests and issues in this repository, and the Camunda project "Bristol Food Network - Task 1".
+Evidence is the commit history, pull requests and issues in this repository, and the Camunda projects "Bristol Food Network - Task 1" (Sprint 1) and "Group 51 Sprint 2" (Sprint 2).
 
 ### Esila Keskin (GitHub: esila-keskin)
 
@@ -46,6 +46,46 @@ Evidence is the commit history, pull requests and issues in this repository, and
 |---|---|---|
 | 27 October 2026 | Wrote the test plan outline for the happy path and three exception paths | docs/test-plan-outline.md; pull request #42 |
 
+## 1a. Sprint 2 work
+
+### Esila Keskin (GitHub: esila-keskin)
+
+| Date | Work | Evidence |
+|---|---|---|
+| 12 November 2026 | Agreed the new Sprint 2 split with the group and wrote step-by-step task instructions for each member | Group chat |
+| 13 November 2026 | Built the i* Strategic Dependency model in piStar | models/istar/istar-sd.txt and .png; pull request #49 |
+| 13 to 15 November 2026 | Built the i* Strategic Rationale model in piStar | models/istar/istar-sr.txt and .png; pull request #51 |
+| 15 to 16 November 2026 | Drew the operational BPMN models M7 and M8 in Camunda Web Modeler | Camunda project "Group 51 Sprint 2"; docs/test-evidence/versions-m7.png, versions-m8.png |
+| 16 to 18 November 2026 | Made M8 executable (forms, job types, conditions, error event, timers, mappings) and ran tests F2-a to F2-e | models/operational/m8-process-payment-commission.bpmn; docs/test-results.md; docs/test-evidence/ |
+| 18 November 2026 | Created the cluster API client and ran Bruno's worker against both models | docs/test-evidence/F2-e-worker-terminal.png |
+| 19 November 2026 | Built the three Functionality 1 forms (task moved from Mahtab, see section 3) | camunda/forms/f1-review-basket.form, f1-amend-order.form, f1-confirm-order.form |
+| 19 November 2026 | Made M7 executable and ran tests T1 to T5 | models/operational/m7-place-multivendor-order.bpmn; camunda/tests/m7-test-cases.json; docs/test-results.md |
+| 19 November 2026 | Added the models, forms, test cases, evidence and the i* rationale, operational BPMN justification, test results and Sprint 2 plan | Pull requests #55 and #56 |
+| 19 November 2026 | Updated the traceability matrix, README and process variables, and trimmed documents after tutor feedback | Branch sprint2-docs-update |
+
+### Mahtab Bin Lokman (GitHub: justmahtab)
+
+| Date | Work | Evidence |
+|---|---|---|
+| 18 November 2026 | Reviewed and approved the i* Strategic Dependency model | Review on pull request #49 |
+| 18 November 2026 | Removed the duplicate Q5 from the Functionality 1 open questions | Commit 0764e75; pull request #54 |
+| 18 November 2026 | Recorded the Q7 decision (no stock reservation in Task 1) | Comment on issue #11 |
+
+### Dylan (Ella) Morgan (GitHub: SxyIronGolem)
+
+| Date | Work | Evidence |
+|---|---|---|
+| 13 November 2026 | Recorded the Q8 decision: 3 payment attempts in total | Comment on issue #28 |
+| 14 to 16 November 2026 | Built the two Functionality 2 forms and wrote the payment scenarios with commission worked examples | camunda/forms/f2-enter-payment.form, f2-retry-payment.form; docs/payment-scenarios.md; pull request #50 |
+
+### Bruno Pedro (GitHub: brunopedro2910)
+
+| Date | Work | Evidence |
+|---|---|---|
+| 15 to 16 November 2026 | Wrote the process variable contract and the test data | docs/process-variables.md; test-data/; pull request #52 |
+| 16 November 2026 | Wrote the Node.js job worker with unit tests | workers/; pull request #53 |
+| 15 November 2026 | Wrote his generative AI statement in the README | Commit 4293bf9 |
+
 ## 2. Communication with the group
 
 Each attempt to contact a member or the module team is recorded here with its date and method.
@@ -59,6 +99,11 @@ Owners are agreed at group meetings and recorded here with the date. Until then 
 
 | Date agreed | Item | Owner |
 |---|---|---|
+| 12 November 2026 | M5, M6, M7, M8 (i* and operational models) | Esila Keskin |
+| 12 November 2026 | T1, forms for Functionality 1; fix to the duplicate Q5; Q7 decision | Mahtab Bin Lokman |
+| 12 November 2026 | T1, forms for Functionality 2; payment scenarios; Q8 decision | Dylan (Ella) Morgan |
+| 12 November 2026 | T2, job worker; T3, process variable contract and test data | Bruno Pedro |
+| 19 November 2026 | T1, forms for Functionality 1, moved because Mahtab could not use his Camunda account | Esila Keskin |
 
 ## 4. Roles and membership
 
