@@ -1,6 +1,6 @@
-# Traceability matrix: Sprint 1
+# Traceability matrix
 
-Group 51, Bristol Regional Food Network (Use Case 2). Status as of 28 October 2026.
+Group 51, Bristol Regional Food Network (Use Case 2). Sections 1 to 6: Sprint 1, 28 October 2026. Sections 7 to 9: Sprint 2, 19 November 2026.
 
 This document shows how each stakeholder goal is carried through the strategic BPMN model, the requirements and the product backlog. It answers the brief's requirement for "clear alignment between the strategic process model and the stakeholder goals and dependencies". The i* Strategic Dependency and Rationale models are assessed in Sprint 2; this matrix is the Sprint 1 starting point for them.
 
@@ -103,3 +103,62 @@ Softgoals from the case study that the i* SR model will develop: ease of use for
 - The **i\* Strategic Rationale model** (M6) will take its goals and softgoals from the "Goal" column in section 1, and the platform's internal goals, such as the 5% commission calculation (see the note under section 4).
 - The **operational BPMN models** for Functionality 1 (M7) and Functionality 2 (M8) will each refine one strategic process and keep the same message flows as their external interface, so the strategic and operational models stay consistent.
 - The matrix is updated whenever the backlog or the model changes, and the version in the repository at each sprint submission is the one that counts.
+
+## 7. i* Strategic Rationale elements to operational BPMN, forms, job types and tests (Sprint 2)
+
+| Actor | SR element | Operational element | Form or job type | Test |
+|---|---|---|---|---|
+| Customer | Review and confirm the order | M7: Review basket and enter details; Choose delivery or collection and confirm order | `f1-review-basket`, `f1-confirm-order` | T1, T3 |
+| Customer | Pay for the order | M8: Enter payment details | `f2-enter-payment` | F2-a |
+| Customer | Card details kept safe (quality) | M8: `testCardNumber = null` on Take payment and on the error boundary event | | F2-a, F2-e |
+| Platform | Take basket to confirmed order | M7 as a whole | | T1 |
+| Platform | Check stock at checkout | M7: Check stock, Enough stock?, Amend quantities | `check-stock`, `f1-amend-order` | T1, T2 |
+| Platform | Reserve stock with a timer | Not chosen (Q7). The 30 minutes timer closes unconfirmed orders instead | | T4 |
+| Platform | Split order by producer | M7: Split order by producer and work out total | FEEL script | T1, T5 |
+| Platform | Order and producer records (resource) | Variables `basketItems`, `producerParts` | | T1 |
+| Platform | Take payment and calculate commission | M8 as a whole, started by the call activity in M7 | | T1 |
+| Platform | Submit payment to simulated provider | M8: Take payment; message flows Payment request and Payment result | `take-payment` | F2-a to F2-e |
+| Platform | Payment failure handled; Retry payment up to 3 attempts | M8: Count payment attempt, error boundary event, Wait 10 seconds, Retry payment, Try again? | `f2-retry-payment` | F2-b, F2-c, F2-d, F2-e |
+| Platform | Cancel the order at once | Not chosen | | |
+| Platform | Calculate 5% commission per producer | M8: Calculate commission | FEEL script | F2-a (55), T5 (65) |
+| Platform | Notify producers of their order part | M8: Notify producer, multi-instance; message flow New order notification | `notify-producer` | F2-a |
+| Platform | Orders not lost (quality) | Retry paths, and a named end event for every outcome | | F2-b, F2-e |
+| Platform | Simple checkout process (quality) | Stock check without reservation; three forms in Functionality 1 | | T1 |
+| Platform | Regulatory compliance (quality) | Simulated provider only; card number not kept | | F2-a |
+| Producer | Prepare order part within 48 hours | `earliestDate` two days ahead in Split order; producer notification | | T1 |
+
+## 8. i* Strategic Dependency dependencies to operational models (Sprint 2)
+
+| Dependency | Where it is met | Test |
+|---|---|---|
+| Customer depends on Platform: Multi-vendor order placed | M7 end event Order placed | T1 |
+| Platform depends on Customer: Review and confirm order | M7 user tasks with `f1-review-basket` and `f1-confirm-order` | T1, T3 |
+| Platform depends on Customer: Payment for the order | M8 Enter payment details | F2-a |
+| Platform depends on Payment Provider: Process test payment; Payment result | M8 Take payment, message flows Payment request and Payment result | F2-a to F2-e |
+| Producer depends on Platform: Order notification (48 h notice) | M8 Notify producer, message flow New order notification | F2-a |
+| Producer depends on Platform: Correct share of payment received | M8 Calculate commission, `producerShares` | F2-a, T5 |
+| Customer depends on Platform: Delivery and collection details | `f1-confirm-order`: `fulfilmentMethod`, `earliestDate` | T1 |
+| Customer depends on Platform: Product information | `f1-review-basket` table from `basketItems` | T1 |
+| Platform depends on Producer: Accurate listings and stock | Stock levels read by `check-stock` | T2 |
+| Customer depends on Platform: Secure payment | Simulated provider; card number cleared after each attempt | F2-a, F2-e |
+| Platform depends on Producer: Prepare and fulfil order part | Outside the two functionalities (Coordinate producer fulfilment); started by the notification | |
+| Quality concern resolved, Weekly settlement statement, Verify organic certification, Easy listing without training | Outside Task 1 scope (sections 1 and 4) | |
+
+## 9. Backlog items in Sprint 2
+
+| Item | Delivered by | Test |
+|---|---|---|
+| M5, M6 | models/istar/; docs/istar-rationale.md | |
+| M7, M8 | models/operational/; docs/operational-bpmn-justification.md | T1 to T5, F2-a to F2-e |
+| T1 | camunda/forms/ (five forms) | All |
+| T2 | workers/ (`check-stock`, `take-payment`, `update-inventory`, `notify-producer`) | All; unit tests with `npm test` |
+| T3 | docs/process-variables.md; test-data/ | All |
+| US2, US3 | Check stock, Enough stock?, Amend quantities | T2 |
+| US4, US7 | Split order by producer and work out total | T1, T5 |
+| US5, US6 | Choose delivery or collection and confirm order | T1, T3 |
+| US8, US9 | Take payment, Payment result?, Order paid | F2-a |
+| US10 | Update inventory (logged only) | F2-a |
+| US11 | Notify producer (logged only) | F2-a |
+| US12 | Retry payment loop | F2-b, F2-c, F2-d |
+| US13 | Error boundary event and automatic retry | F2-e |
+| US14, US15 | Calculate commission | F2-a, T5 |
