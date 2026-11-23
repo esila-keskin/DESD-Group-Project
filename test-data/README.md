@@ -9,4 +9,4 @@ These files contain the start variables used to run the two processes in Camunda
 | `basket-short-stock.json` | Insufficient stock: four egg boxes requested and three available | Customer is asked to amend the order |
 | `stock.json` | Available stock per product, read by the `check-stock` worker | Reference data |
 
-The payment outcome is selected on the payment form through `paymentScenario` (`approve`, `decline` or `unavailable`). All data is fictional. No real names, email addresses or card numbers are used.
+The payment outcome is selected on the payment form through `paymentScenario` (`approve`, `decline` or `unavailable`).

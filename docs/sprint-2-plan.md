@@ -14,7 +14,7 @@ The split was agreed on 12 November 2026.
 
 | ID | Item | Owner | Status |
 |---|---|---|---|
-| M5 | i* Strategic Dependency model | Esila Keskin | Done, pull request #49 |
+| M5 | i* Strategic Dependency model | Esila Keskin | Done, pull request #49, approved by Mahtab |
 | M6 | i* Strategic Rationale model | Esila Keskin | Done, merged in #51 |
 | M7 | Operational BPMN, Functionality 1, executable | Esila Keskin | Done, tests T1 to T5 pass |
 | M8 | Operational BPMN, Functionality 2, executable | Esila Keskin | Done, tests F2-a to F2-e pass |
@@ -22,9 +22,9 @@ The split was agreed on 12 November 2026.
 | T1 | Forms for Functionality 2 and payment scenarios | Dylan (Ella) Morgan | Done, merged in #50 |
 | Q8 | Number of payment attempts | Dylan (Ella) Morgan | Decided on issue #28: 3 in total |
 | T3 | Process variable contract and test data | Bruno Pedro | Done, merged in #52 |
-| T2 | Job worker with unit tests | Bruno Pedro | Done, pull request #53 |
+| T2 | Job worker with unit tests | Bruno Pedro | Done, merged in #53 |
 | Q7 | Stock reservation | Mahtab Bin Lokman | Decided on issue #11: no reservation in Task 1 |
-| | Duplicate Q5 in docs/f1-open-questions.md | Mahtab Bin Lokman | Pull request fix-f1-duplicate-q5 |
+| | Duplicate Q5 in docs/f1-open-questions.md | Mahtab Bin Lokman | Done, commit 0764e75 |
 | | Traceability matrix v2, test results, this plan, model justifications | Esila Keskin | Done |
 
 The executable models also cover user stories planned for Sprint 3, because the models needed them to run end to end: US3, US5, US7 and US9 to US15. Some are in a basic form only. The limits are listed in docs/operational-bpmn-justification.md, section 9.
@@ -38,7 +38,7 @@ The executable models also cover user stories planned for Sprint 3, because the 
 ## Working agreement: what happened
 
 - One branch and one pull request per item was followed.
-- Pull requests #50, #51 and #52 were merged without a recorded GitHub review; #51 was merged by its author shortly after a review was requested. Reviews were added afterwards as comments. From now on, no pull request is merged without an approval.
+- Pull requests #50 to #56 were merged without a recorded GitHub review, because of the deadline; #49 was approved by Mahtab before it was merged. The duplicate Q5 fix was committed straight to main, and pull request #54 repeated it. From now on, no pull request is merged without an approval, and reviews of the merged pull requests are being added as comments.
 - The worker's cluster credentials are kept in workers/.env, which Git ignores, and were shared privately.
 
 ## Review demo

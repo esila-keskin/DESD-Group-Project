@@ -60,16 +60,16 @@ Evidence is the commit history, pull requests and issues in this repository, and
 | 18 November 2026 | Created the cluster API client and ran Bruno's worker against both models | docs/test-evidence/F2-e-worker-terminal.png |
 | 19 November 2026 | Built the three Functionality 1 forms (task moved from Mahtab, see section 3) | camunda/forms/f1-review-basket.form, f1-amend-order.form, f1-confirm-order.form |
 | 19 November 2026 | Made M7 executable and ran tests T1 to T5 | models/operational/m7-place-multivendor-order.bpmn; camunda/tests/m7-test-cases.json; docs/test-results.md |
-| 19 November 2026 | Wrote the i* rationale, operational BPMN justification, traceability matrix v2, test results and Sprint 2 plan, and trimmed documents after tutor feedback | docs/ |
+| 19 November 2026 | Added the models, forms, test cases, evidence and the i* rationale, operational BPMN justification, test results and Sprint 2 plan | Pull requests #55 and #56 |
+| 19 November 2026 | Updated the traceability matrix, README and process variables, and trimmed documents after tutor feedback | Branch sprint2-docs-update |
 
 ### Mahtab Bin Lokman (GitHub: justmahtab)
 
 | Date | Work | Evidence |
 |---|---|---|
-| 19 November 2026 | Reviewed and approved the i* Strategic Dependency model | Review on pull request #49 |
-| 19 November 2026 | Removed the duplicate Q5 from the Functionality 1 open questions | Pull request from branch fix-f1-duplicate-q5 |
-| 19 November 2026 | Recorded the Q7 decision (no stock reservation in Task 1) | Comment on issue #11 |
-| 19 November 2026 | Reviewed and approved the job worker | Review on pull request #53 |
+| 18 November 2026 | Reviewed and approved the i* Strategic Dependency model | Review on pull request #49 |
+| 18 November 2026 | Removed the duplicate Q5 from the Functionality 1 open questions | Commit 0764e75; pull request #54 |
+| 18 November 2026 | Recorded the Q7 decision (no stock reservation in Task 1) | Comment on issue #11 |
 
 ### Dylan (Ella) Morgan (GitHub: SxyIronGolem)
 
@@ -82,9 +82,9 @@ Evidence is the commit history, pull requests and issues in this repository, and
 
 | Date | Work | Evidence |
 |---|---|---|
-| 16 November 2026 | Wrote the process variable contract and the test data | docs/process-variables.md; test-data/; pull request #52 |
+| 15 to 16 November 2026 | Wrote the process variable contract and the test data | docs/process-variables.md; test-data/; pull request #52 |
 | 16 November 2026 | Wrote the Node.js job worker with unit tests | workers/; pull request #53 |
-| 16 November 2026 | Wrote his generative AI statement in the README | Commit 4293bf9 |
+| 15 November 2026 | Wrote his generative AI statement in the README | Commit 4293bf9 |
 
 ## 2. Communication with the group
 
